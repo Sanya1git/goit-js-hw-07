@@ -27,14 +27,9 @@ const images = [
     alt: 'Zebras on Zebra',
   },
 ];
-const list = document.querySelector(".gallery");
-images.forEach(function(image) {
-  const listItem = document.createElement("li");
-  listItem.className = "list";
-  const imageItem = document.createElement("img");
-  imageItem.src = image.url;
-  imageItem.alt = image.alt;
-  imageItem.className = "photo";
-  listItem.appendChild(imageItem);
-  list.appendChild(listItem);
-});
+const marking = document.querySelector("ul.gallery");
+
+const imagNew = images.map((img) =>
+ `<li><img src="${img.url}" alt="${img.alt}"></img></li>`).join("");
+
+ marking.insertAdjacentHTML("beforeend", imagNew);
